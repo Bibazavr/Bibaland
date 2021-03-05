@@ -29,6 +29,8 @@
     },
     "web": {
       "favicon": "./assets/images/favicon.png"
-    }
+    },
+    "description": "Try do smth cool",
+    "githubUrl": "https://github.com/Bibazavr/Bibaland"
   }
 }
