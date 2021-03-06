@@ -26,7 +26,7 @@ export default function useCachedResources() {
       }
     }
 
-    loadResourcesAndDataAsync().then(r => console.debug(r));
+    loadResourcesAndDataAsync().then(r => console.debug('loadResourcesAndDataAsync', r));
   }, []);
 
   return isLoadingComplete;
