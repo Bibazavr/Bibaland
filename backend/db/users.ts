@@ -6,10 +6,6 @@ export class Users extends Model {
     static timestamps = true;
 
     static fields = {
-        id: {
-            type: DataTypes.INTEGER,
-            primaryKey: true
-        },
         name: {
             type: DataTypes.STRING,
             length: 25,

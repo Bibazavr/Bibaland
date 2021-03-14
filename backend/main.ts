@@ -3,7 +3,8 @@ import {
     Status
 } from "https://deno.land/x/oak/mod.ts";
 
-import router from "./routers/books.ts";
+import RAuth from "./routers/auth.ts";
+import db from "./db/mongo.ts";
 
 
 const app = new Application();
@@ -46,8 +47,10 @@ app.use(async (ctx, next) => {
     }
 });
 
-app.use(router.routes());
-app.use(router.allowedMethods());
+app.use(RAuth.routes());
+app.use(RAuth.allowedMethods());
+
+console.log('db ping',  await db.ping())
 
 app.use(async (context) => {
     await send(context, context.request.url.pathname, {

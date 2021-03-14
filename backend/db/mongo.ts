@@ -10,12 +10,9 @@ const db = new Database(connector);
 
 db.link([Users]);
 
-await db.sync();
-
-console.log('db ping',  await db.ping())
+await db.sync({drop: true});
 
 await Users.create({
-    id: '1',
     name: 'Bibazavr',
     email: 'example@mail.ru',
     password: 'qwerty'
