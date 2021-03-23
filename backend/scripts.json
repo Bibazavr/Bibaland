@@ -1,0 +1,10 @@
+{
+  "$schema": "https://deno.land/x/denon@2.4.7/schema.json",
+  "env": {},
+  "scripts": {
+    "start": {
+      "cmd": "deno run --allow-net --allow-read main.ts",
+      "desc": "run my main.ts file"
+    }
+  }
+}

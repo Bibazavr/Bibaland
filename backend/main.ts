@@ -1,5 +1,5 @@
 import {
-    Application, send, isHttpError, REDIRECT_BACK,
+    Application, send, isHttpError,
     Status
 } from "https://deno.land/x/oak/mod.ts";
 
