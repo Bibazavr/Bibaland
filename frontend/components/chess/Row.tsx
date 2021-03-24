@@ -1,17 +1,17 @@
-import { ICeil } from "../../chess/types";
+import { ICell } from "../../chess/types";
 import { View } from "../Themed";
-import { Ceil } from "./Ceil";
+import { Cell } from "./Cell";
 import React from "react";
 import { StyleSheet } from "react-native";
 
 interface IRowProps {
-  cells: ICeil[];
+  cells: ICell[];
 }
 export const Row = (props: IRowProps) => {
   return (
     <View style={styles.container}>
       {props.cells.map((ceil, index) => {
-        return <Ceil key={index} ceil={ceil} />;
+        return <Cell key={index} ceil={ceil} />;
       })}
     </View>
   );

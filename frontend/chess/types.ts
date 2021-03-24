@@ -18,8 +18,8 @@ export interface Side {
 export type ICord = { x: number; y: number };
 
 export type IColor = "black" | "white";
-export type ICeil = { color: IColor; piece: CPiece | null };
-export type IBoard = ICeil[][];
+export type ICell = { color: IColor; piece: CPiece | null };
+export type IBoard = ICell[][];
 
 export interface IPieceProps {
   cord: ICord;

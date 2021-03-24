@@ -2,13 +2,13 @@ import * as React from "react";
 import { StyleSheet } from "react-native";
 
 import { View } from "../Themed";
-import { ICeil } from "../../chess/types";
+import { ICell } from "../../chess/types";
 import { Piece } from "./Piece";
 
-interface CielProps {
-  ceil: ICeil;
+interface CellProps {
+  ceil: ICell;
 }
-export const Ceil = (props: CielProps): React.ReactElement => {
+export const Cell = (props: CellProps): React.ReactElement => {
   return (
     <View style={styles(props).container}>
       <Piece piece={props.ceil.piece} />
@@ -16,7 +16,7 @@ export const Ceil = (props: CielProps): React.ReactElement => {
   );
 };
 
-const styles = (props: CielProps) =>
+const styles = (props: CellProps) =>
   StyleSheet.create({
     container: {
       backgroundColor: props.ceil.color,
