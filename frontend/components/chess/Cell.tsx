@@ -1,24 +1,31 @@
 import * as React from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, TouchableOpacity } from "react-native";
 
-import { View } from "../Themed";
-import { ICell } from "../../chess/types";
+import { ICell, ICord } from "../../chess/types";
 import { Piece } from "./Piece";
+import { Point } from "./Point";
 
 interface CellProps {
   ceil: ICell;
+  onCellClick: (cord?: ICord) => void;
 }
 export const Cell = (props: CellProps): React.ReactElement => {
+  const { piece, point } = props.ceil;
   return (
-    <View style={styles(props).container}>
-      <Piece piece={props.ceil.piece} />
-    </View>
+    <TouchableOpacity
+      style={styles(props).container}
+      onPress={() => props.onCellClick(piece?.cord)}
+    >
+      <Point point={point} />
+      <Piece piece={piece} />
+    </TouchableOpacity>
   );
 };
 
 const styles = (props: CellProps) =>
   StyleSheet.create({
     container: {
+      position: "relative",
       backgroundColor: props.ceil.color,
       width: 40,
       height: 40,

@@ -1,4 +1,6 @@
-import { IBoard, Side } from "./types";
+import { setIn } from "immutable";
+
+import { IBoard, ICord, Side } from "./types";
 import { CPiece } from "./CPiece";
 
 /**
@@ -25,7 +27,7 @@ const initBoardColor = (board: IBoard): IBoard => {
  * Board
  */
 export class CBoard {
-  readonly board: IBoard;
+  board: IBoard;
   private readonly white: Side;
   private readonly black: Side;
 
@@ -54,10 +56,11 @@ export class CBoard {
 
   /**
    * add PieceOnBoard
-   * @param {CPiece} Piece
+   * @param {CPiece} piece
    */
-  addPieceOnBoard(Piece: CPiece) {
-    this.board[Piece.cord.x][Piece.cord.y].piece = Piece;
+  addPieceOnBoard(piece: CPiece) {
+    const { cord } = piece;
+    this.board = setIn(this.board, [cord.y, cord.x, "piece"], piece);
   }
 
   /**
@@ -72,4 +75,22 @@ export class CBoard {
     this.addPieceOnBoard(side.Queen);
     this.addPieceOnBoard(side.King);
   }
+
+  /**
+   * onBordClick
+   * @param {ICord} cord
+   */
+  onBoardClick = (cord?: ICord) => {
+    if (!cord) return;
+
+    const piece = this.board[cord.y][cord.x].piece;
+
+    if (!piece) return;
+
+    const moves = piece.getMoves();
+
+    moves.forEach((move) => {
+      this.board = setIn(this.board, [move.y, move.x, "point"], true);
+    });
+  };
 }

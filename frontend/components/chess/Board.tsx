@@ -10,10 +10,17 @@ interface IBoardProps {
 }
 
 export const Board = (props: IBoardProps) => {
+  const { cboard } = props;
   return (
     <View style={styles.container}>
-      {props.cboard.board.map((row, index) => {
-        return <Row key={index} cells={row} />;
+      {cboard.board.map((row, index) => {
+        return (
+          <Row
+            key={`row${index}`}
+            cells={row}
+            onCellClick={cboard.onBoardClick}
+          />
+        );
       })}
     </View>
   );

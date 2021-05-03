@@ -18,7 +18,7 @@ export interface Side {
 export type ICord = { x: number; y: number };
 
 export type IColor = "black" | "white";
-export type ICell = { color: IColor; piece: CPiece | null };
+export type ICell = { color: IColor; piece: CPiece | null; point?: boolean };
 export type IBoard = ICell[][];
 
 export interface IPieceProps {

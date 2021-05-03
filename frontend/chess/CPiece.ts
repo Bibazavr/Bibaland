@@ -15,5 +15,17 @@ export class CPiece {
     this.cord = props.cord;
     this.color = props.color;
   }
-  move = () => {};
+
+  /**
+   * getMoves
+   * @return {ICord[]}
+   */
+  getMoves(): ICord[] {
+    return [];
+  }
+
+  /**
+   * move
+   */
+  move(): void {}
 }

@@ -11,9 +11,10 @@ import { defaultBlack, defaultWhite } from "../chess/constants";
  * @return {React.ReactElement}
  */
 export default function TabOneScreen() {
+  const cboard = new CBoard(defaultWhite, defaultBlack);
   return (
     <View style={styles.container}>
-      <Board cboard={new CBoard(defaultWhite, defaultBlack)} />
+      <Board cboard={cboard} />
     </View>
   );
 }
