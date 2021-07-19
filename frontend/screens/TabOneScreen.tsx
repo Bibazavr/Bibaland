@@ -1,23 +1,20 @@
 import * as React from "react";
 import { StyleSheet } from "react-native";
 
-import EditScreenInfo from "../components/EditScreenInfo";
-import { Text, View } from "../components/Themed";
+import { View } from "../components/Themed";
+import { CBoard } from "../chess/CBoard";
+import { Board } from "../components/chess/Board";
+import { defaultBlack, defaultWhite } from "../chess/constants";
 
 /**
  * TabOneScreen
  * @return {React.ReactElement}
  */
 export default function TabOneScreen() {
+  const cboard = new CBoard(defaultWhite, defaultBlack);
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
-      <View
-        style={styles.separator}
-        lightColor="#eee"
-        darkColor="rgba(255,255,255,0.1)"
-      />
-      <EditScreenInfo path="/screens/TabOneScreen.tsx" />
+      <Board cboard={cboard} />
     </View>
   );
 }
@@ -27,14 +24,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: "80%",
+    margin: 5,
   },
 });

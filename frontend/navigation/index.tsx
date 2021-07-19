@@ -46,7 +46,7 @@ function RootNavigator() {
   return (
     <Stack.Navigator
       screenOptions={{ headerShown: false }}
-      initialRouteName={"Authorization"}
+      initialRouteName={"Root"}
     >
       <Stack.Screen name="Root" component={BottomTabNavigator} />
       <Stack.Screen name="Authorization" component={AuthorizationNavigator} />
